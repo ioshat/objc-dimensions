@@ -2,23 +2,23 @@
 {>constraints/}
 
 {@if cond="'{options.margin.top}' == 'true' || '{options.margin.bottom}' == 'true'"}
-// align {layers[0].name} vertically{~n}
+// align {name} vertically{~n}
 [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:
-@"V:{?options.margin.top}|-{layers[0].bounds.top}-{/options.margin.top}[{layers[0].name}]{?options.margin.bottom}-{layers[0].bounds.bottom}-|{/options.margin.bottom}" options:0 metrics:nil views:NSDictionaryOfVariableBindings({layers[0].name})]];{~n}{~n}
+@"V:{?options.margin.top}|-{bounds.top}-{/options.margin.top}[{name}]{?options.margin.bottom}-{bounds.bottom}-|{/options.margin.bottom}" options:0 metrics:nil views:NSDictionaryOfVariableBindings({name})]];{~n}{~n}
 {/if}
 
 {@if cond="'{options.margin.left}' == 'true' || '{options.margin.right}' == 'true'"}
-// align {layers[0].name} horizontally{~n}
+// align {name} horizontally{~n}
 [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:
-@"H:{?options.margin.left}|-{layers[0].bounds.left}-{/options.margin.left}[{layers[0].name}]{?options.margin.right}-{layers[0].bounds.right}-|{/options.margin.right}" options:0 metrics:nil views:NSDictionaryOfVariableBindings({layers[0].name})]];{~n}{~n}
+@"H:{?options.margin.left}|-{bounds.left}-{/options.margin.left}[{name}]{?options.margin.right}-{bounds.right}-|{/options.margin.right}" options:0 metrics:nil views:NSDictionaryOfVariableBindings({name})]];{~n}{~n}
 {/if}
 
 {?options.dimensions.width}
 // width constraint{~n}
-[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[{layers[0].name}(=={layers[0].bounds.width})]" options:0 metrics:nil views:NSDictionaryOfVariableBindings({layers[0].name})]];{~n}{~n}
+[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[{name}(=={bounds.width})]" options:0 metrics:nil views:NSDictionaryOfVariableBindings({name})]];{~n}{~n}
 {/options.dimensions.width}
 
 {?options.dimensions.height}
 // height constraint{~n}
-[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[{layers[0].name}(=={layers[0].bounds.height})]" options:0 metrics:nil views:NSDictionaryOfVariableBindings({layers[0].name})]];{~n}{~n}
+[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[{name}(=={bounds.height})]" options:0 metrics:nil views:NSDictionaryOfVariableBindings({name})]];{~n}{~n}
 {/options.dimensions.height}
