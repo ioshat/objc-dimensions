@@ -3,22 +3,22 @@
 
 {@if cond="'{options.margin.top}' == 'true' || '{options.margin.bottom}' == 'true'"}
 // align {name} vertically{~n}
-[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:
+[{options.superviewName} addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:
 @"V:{?options.margin.top}|-{bounds.top}-{/options.margin.top}[{name}]{?options.margin.bottom}-{bounds.bottom}-|{/options.margin.bottom}" options:0 metrics:nil views:NSDictionaryOfVariableBindings({name})]];{~n}{~n}
 {/if}
 
 {@if cond="'{options.margin.left}' == 'true' || '{options.margin.right}' == 'true'"}
 // align {name} horizontally{~n}
-[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:
+[{options.superviewName} addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:
 @"H:{?options.margin.left}|-{bounds.left}-{/options.margin.left}[{name}]{?options.margin.right}-{bounds.right}-|{/options.margin.right}" options:0 metrics:nil views:NSDictionaryOfVariableBindings({name})]];{~n}{~n}
 {/if}
 
 {?options.dimensions.width}
 // width constraint{~n}
-[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[{name}(=={bounds.width})]" options:0 metrics:nil views:NSDictionaryOfVariableBindings({name})]];{~n}{~n}
+[{options.superviewName} addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[{name}(=={bounds.width})]" options:0 metrics:nil views:NSDictionaryOfVariableBindings({name})]];{~n}{~n}
 {/options.dimensions.width}
 
 {?options.dimensions.height}
 // height constraint{~n}
-[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[{name}(=={bounds.height})]" options:0 metrics:nil views:NSDictionaryOfVariableBindings({name})]];{~n}{~n}
+[{options.superviewName} addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[{name}(=={bounds.height})]" options:0 metrics:nil views:NSDictionaryOfVariableBindings({name})]];{~n}{~n}
 {/options.dimensions.height}

@@ -33,5 +33,12 @@ var helpers = {
     }
 };
 
+exports.postprocess = function(data) {
+  if (data.replace(/\W+/, '') == '') {
+    data = 'Please, configure code output above.'
+  }
+  return data;
+};
+
 exports.filters = filters;
 exports.helpers = helpers;
